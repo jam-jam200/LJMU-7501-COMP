@@ -125,30 +125,26 @@ public class BookProgram {
         Comparator<Book> comparator = null;
 
         switch (sortOption) {
-            case 1:
+            case 1 ->
                 //sort the book list by title
-                comparator = Comparator.comparing(Book::getTitle);
-                break;
-            case 2:
+                    comparator = Comparator.comparing(Book::getTitle);
+            case 2 ->
                 //sort the book list by author
-                comparator = Comparator.comparing(Book::getAuthor);
-                break;
-            case 3:
+                    comparator = Comparator.comparing(Book::getAuthor);
+            case 3 ->
                 //sort the book list by ISBN
-                comparator = Comparator.comparing(Book::getIsbn);
-                break;
-            case 4:
+                    comparator = Comparator.comparing(Book::getIsbn);
+            case 4 ->
                 //sort the book list by publisher
-                comparator = Comparator.comparing(Book::getPublisher);
-                break;
-            case 5:
+                    comparator = Comparator.comparing(Book::getPublisher);
+            case 5 ->
                 //sort the book list by release year
-                comparator = Comparator.comparingInt(Book::getReleaseYear);
-                break;
-            default:
+                    comparator = Comparator.comparingInt(Book::getReleaseYear);
+            default -> {
                 //in case the entered option is invalid print out error message
                 System.out.println("Invalid option. The book list remains unsorted.");
                 return;
+            }
         }
 
         Collections.sort(bookList, comparator); //sort the book list using the chosen comparator(the one chosen by the user)
