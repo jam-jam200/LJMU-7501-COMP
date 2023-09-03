@@ -57,7 +57,7 @@ public class Fibonacci {
     public static int[] calculateFib(int n) {
         int[] fibonacciSequence = new int[n];
 
-        // Initialize the first two Fibonacci numbers
+        //initializing the first two Fibonacci numbers
         if (n >= 1) {
             fibonacciSequence[0] = 0;
         }
@@ -65,7 +65,7 @@ public class Fibonacci {
             fibonacciSequence[1] = 1;
         }
 
-        // Calculate the remaining Fibonacci numbers using a loop
+        //calculating the remaining Fibonacci numbers using a loop
         for (int i = 2; i < n; i++) {
             fibonacciSequence[i] = fibonacciSequence[i - 1] + fibonacciSequence[i - 2];
         }
