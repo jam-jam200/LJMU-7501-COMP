@@ -27,29 +27,28 @@ public class ATM extends JFrame {
 
         //centering the application window on the screen
         setLocationRelativeTo(null);
-        ;
 
-        // Create account number label and text field
+        //creating account number label and text field
         JLabel accountLabel = new JLabel("Account Number:");
         accountField = new JTextField(15);
 
-        // Create PIN label and password field
+        //creating pin label and password field
         JLabel pinLabel = new JLabel("PIN:");
         pinField = new JPasswordField(4);
 
-        // Create transaction dropdown
+        //creating transaction dropdown
         String[] transactions = {"Select Transaction", "Check Balance", "Deposit", "Withdraw", "Transfer"};
         transactionDropdown = new JComboBox<>(transactions);
 
-        // Create output area
+        //creating output area
         outputArea = new JTextArea(10, 30);
         outputArea.setEditable(false);
 
-        // Create buttons for actions
+        //creating buttons for actions
         JButton submitButton = new JButton("Submit");
         JButton clearButton = new JButton("Clear");
 
-        // Add components to the layout
+        //adding components to the layout
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = new Insets(5, 5, 5, 5);
@@ -83,45 +82,58 @@ public class ATM extends JFrame {
         constraints.gridwidth = 2;
         panel.add(new JScrollPane(outputArea), constraints);
 
-        // ActionListener for the Submit button
+        //ActionListener for the submit button
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 handleTransaction();
             }
         });
 
-        // ActionListener for the Clear button
+        //ActionListener for the clear button
         clearButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 clearFields();
             }
         });
 
+        //adding the 'panel' component to the ATM application window
         add(panel);
+
+        //making the ATM application window visible to the user
         setVisible(true);
+
     }
 
-    // Handle user-selected transaction
+    //handling user-selected transaction
     private void handleTransaction() {
+        //retrieve the user-entered account number from the 'accountField' input field
         String accountNumber = accountField.getText();
+
+        //retrieve the user-entered pin from the 'pinField' input field and convert it to a String
         String pin = String.valueOf(pinField.getPassword());
+
+        //retrieve the selected transaction type from the 'transactionDropdown' dropdown
         String selectedTransaction = (String) transactionDropdown.getSelectedItem();
 
+        //check if either the account number or pin is empty; if so, show an error message and exit
         if (accountNumber.isEmpty() || pin.isEmpty()) {
-            showMessage("Please enter your account number and PIN.");
+            showMessage("Please enter your account number and pin.");
             return;
         }
 
-        // Perform account validation (simplified for demonstration)
+        //perform account validation
+        //check if the entered account number and pin match the predefined values
         boolean validAccount = accountNumber.equals("12345") && pin.equals("1234");
+        //if the account is not valid, show an error message and exit the transaction handling
         if (!validAccount) {
             showMessage("Invalid account number or PIN.");
             return;
         }
 
-        // Handle selected transaction
+        //handling the selected transaction
         switch (selectedTransaction) {
             case "Check Balance":
+                //display the current and savings balances
                 showMessage("Checking Balance: $" + currentBalance + "\nSavings Balance: $" + savingsBalance);
                 break;
             case "Deposit":
