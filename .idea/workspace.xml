@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="928e9a0d-c6a7-487c-a74b-fb4e2a388152" name="Changes" comment="book list sort">
+      <change afterPath="$PROJECT_DIR$/src/BubbleSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BookProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookProgram.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +24,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2UtQSMM4CCPyNwN7rMZQTZJHXqa" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -206,7 +208,39 @@
       <option name="project" value="LOCAL" />
       <updated>1693762783717</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="book list sort">
+      <option name="closed" value="true" />
+      <created>1693763519481</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1693763519481</updated>
+    </task>
+    <task id="LOCAL-00022" summary="book list sort">
+      <option name="closed" value="true" />
+      <created>1693763584121</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1693763584121</updated>
+    </task>
+    <task id="LOCAL-00023" summary="book list sort">
+      <option name="closed" value="true" />
+      <created>1693763603996</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1693763603996</updated>
+    </task>
+    <task id="LOCAL-00024" summary="book list sort">
+      <option name="closed" value="true" />
+      <created>1693763788184</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1693763788184</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
