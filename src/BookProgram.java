@@ -104,7 +104,7 @@ public class BookProgram {
         bookList.add(new Book("Book E", "Author E", "ISBN 5555", "Publisher E", 2019));
         bookList.add(new Book("Book F", "Author F", "ISBN 6666", "Publisher F", 2018));
         bookList.add(new Book("Book G", "Author G", "ISBN 7777", "Publisher G", 2017));
-        bookList.add(new Book("Book H", "Author 8H", "ISBN 8888", "Publisher H", 2016));
+        bookList.add(new Book("Book H", "Author H", "ISBN 8888", "Publisher H", 2016));
         bookList.add(new Book("Book I", "Author I", "ISBN 9999", "Publisher I", 2015));
         bookList.add(new Book("Book J", "Author J", "ISBN 1010", "Publisher J", 2014));
     }
@@ -121,29 +121,36 @@ public class BookProgram {
         System.out.print("Enter your Option: ");
         int sortOption = scanner.nextInt();
 
+        //initializing a Comparator for sorting the books, initially set to null because of no set sortOption
         Comparator<Book> comparator = null;
 
         switch (sortOption) {
             case 1:
+                //sort the book list by title
                 comparator = Comparator.comparing(Book::getTitle);
                 break;
             case 2:
+                //sort the book list by author
                 comparator = Comparator.comparing(Book::getAuthor);
                 break;
             case 3:
+                //sort the book list by ISBN
                 comparator = Comparator.comparing(Book::getIsbn);
                 break;
             case 4:
+                //sort the book list by publisher
                 comparator = Comparator.comparing(Book::getPublisher);
                 break;
             case 5:
+                //sort the book list by release year
                 comparator = Comparator.comparingInt(Book::getReleaseYear);
                 break;
             default:
-                System.out.println("Invalid choice. The booklist remains unsorted.");
+                //in case the entered option is invalid print out error message
+                System.out.println("Invalid option. The book list remains unsorted.");
                 return;
         }
 
-        Collections.sort(bookList, comparator); // Sort the book list using the chosen comparator
+        Collections.sort(bookList, comparator); //sort the book list using the chosen comparator
     }
 }
