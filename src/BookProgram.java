@@ -50,8 +50,9 @@ class Book {
 
 public class BookProgram {
     public static void main(String[] args) {
+        //creating an ArrayList to store the list of Book objects
         ArrayList<Book> bookList = new ArrayList<>();
-        initializeBookList(bookList); // Initialize the book list with sample books
+        initializeBookList(bookList); //initializing the book list with sample books
 
         Scanner scanner = new Scanner(System.in);
 
