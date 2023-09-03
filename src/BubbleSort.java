@@ -5,7 +5,7 @@ public class BubbleSort {
         Scanner scanner = new Scanner(System.in);
 
         //get the user's input for the number of strings to be sorted
-        System.out.print("Enter the number of strin gs to be sorted: ");
+        System.out.print("Enter the number of strings to be sorted: ");
         int alphanum = scanner.nextInt();
         scanner.nextLine();
 
@@ -69,13 +69,13 @@ public class BubbleSort {
         }
     }
 
-    // Helper function to compare strings based on sorting order
+    //function to compare strings based on sorting order
     public static int compareStrings(String str1, String str2, boolean reverse) {
         if (reverse) {
-            // Compare in reverse order (reverse alphanumeric)
+            //compare in reverse order (reverse alphanumeric)
             return str2.compareTo(str1);
         } else {
-            // Compare in normal order (alphanumeric)
+            //compare in normal order (alphanumeric)
             return str1.compareTo(str2);
         }
     }
