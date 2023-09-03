@@ -203,18 +203,26 @@ public class ATM extends JFrame {
 
     // Perform a fund transfer transaction
     private void performTransfer() {
+        //request the user to input the transfer amount using a dialog box
         String transferAmountStr = JOptionPane.showInputDialog("Enter the transfer amount:");
+        //checking if the user canceled the input dialog or left it empty
         if (transferAmountStr == null || transferAmountStr.isEmpty()) {
+            //show an error message and exit the transfer operation
             showMessage("Invalid transfer amount.");
             return;
         }
 
+        //parse the transfer amount from the user's input (as a string) to a double
         double transferAmount = Double.parseDouble(transferAmountStr);
+
+        //checking if the current balance is sufficient for the transfer
         if (currentBalance >= transferAmount) {
+            //if sufficient, update the savings and current balances accordingly
             savingsBalance += transferAmount;
             currentBalance -= transferAmount;
             showMessage("Transfer successful.\nNew Checking Balance: $" + currentBalance + "\nNew Savings Balance: $" + savingsBalance);
         } else {
+            //if the balance is insufficient, show an error message
             showMessage("Insufficient balance.");
         }
     }
