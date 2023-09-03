@@ -40,7 +40,7 @@ public class BubbleSort {
         for (String str : strings) {
             System.out.println(str);
         }
-
+        //closing the scanner to release resources associated with standard input (System.in)
         scanner.close();
     }
 
