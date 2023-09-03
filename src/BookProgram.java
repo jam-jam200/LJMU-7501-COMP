@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -97,16 +96,16 @@ public class BookProgram {
 
     //initializing the book list with sample books
     private static void initializeBookList(ArrayList<Book> bookList) {
-        bookList.add(new Book("Book A", "Author A", "ISBN 1111", "Publisher A", 2023));
-        bookList.add(new Book("Book B", "Author B", "ISBN 2222", "Publisher B", 2022));
-        bookList.add(new Book("Book C", "Author C", "ISBN 3333", "Publisher C", 2021));
-        bookList.add(new Book("Book D", "Author D", "ISBN 4444", "Publisher D", 2020));
-        bookList.add(new Book("Book E", "Author E", "ISBN 5555", "Publisher E", 2019));
-        bookList.add(new Book("Book F", "Author F", "ISBN 6666", "Publisher F", 2018));
-        bookList.add(new Book("Book G", "Author G", "ISBN 7777", "Publisher G", 2017));
-        bookList.add(new Book("Book H", "Author H", "ISBN 8888", "Publisher H", 2016));
-        bookList.add(new Book("Book I", "Author I", "ISBN 9999", "Publisher I", 2015));
-        bookList.add(new Book("Book J", "Author J", "ISBN 1010", "Publisher J", 2014));
+        bookList.add(new Book("Book A", "Author J", "ISBN 1111", "Publisher A", 2023));
+        bookList.add(new Book("Book B", "Author I", "ISBN 2222", "Publisher B", 2022));
+        bookList.add(new Book("Book C", "Author H", "ISBN 3333", "Publisher C", 2021));
+        bookList.add(new Book("Book D", "Author G", "ISBN 4444", "Publisher D", 2020));
+        bookList.add(new Book("Book E", "Author F", "ISBN 5555", "Publisher E", 2019));
+        bookList.add(new Book("Book F", "Author E", "ISBN 6666", "Publisher F", 2018));
+        bookList.add(new Book("Book G", "Author D", "ISBN 7777", "Publisher G", 2017));
+        bookList.add(new Book("Book H", "Author C", "ISBN 8888", "Publisher H", 2016));
+        bookList.add(new Book("Book I", "Author B", "ISBN 9999", "Publisher I", 2015));
+        bookList.add(new Book("Book J", "Author A", "ISBN 1010", "Publisher J", 2014));
     }
 
     //sorting the book list based on the user's option
@@ -147,6 +146,6 @@ public class BookProgram {
             }
         }
 
-        Collections.sort(bookList, comparator); //sort the book list using the chosen comparator(the one chosen by the user)
+        bookList.sort(comparator); //sort the book list using the chosen comparator(the one chosen by the user)
     }
 }
