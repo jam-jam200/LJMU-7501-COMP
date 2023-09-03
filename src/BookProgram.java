@@ -61,12 +61,12 @@ public class BookProgram {
             System.out.println("1. Display a book from a list");
             System.out.println("2. Sort the book list");
             System.out.println("3. Exit Program");
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
+            System.out.print("Enter your option: ");
+            int option = scanner.nextInt();
 
-            switch (choice) {
+            switch (option) {
                 case 1:
-                    System.out.print("Enter the index of the book to display (0-9): ");
+                    System .out.print("Enter the index of the book to display (0-9): ");
                     int index = scanner.nextInt();
                     if (index >= 0 && index < bookList.size()) {
                         System.out.println("\nBook Details:");
@@ -76,7 +76,7 @@ public class BookProgram {
                     }
                     break;
                 case 2:
-                    sortBookList(bookList); // Sort the book list based on user's choice
+                    sortBookList(bookList); // Sort the book list based on user's option
                     System.out.println("Booklist sorted.");
                     break;
                 case 3:
@@ -84,7 +84,7 @@ public class BookProgram {
                     scanner.close();
                     System.exit(0);
                 default:
-                    System.out.println("Invalid choice. Please enter a valid choice.");
+                    System.out.println("Invalid option. Please enter a valid option.");
             }
         }
     }
