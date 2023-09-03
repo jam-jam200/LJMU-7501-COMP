@@ -4,10 +4,10 @@ public class BubbleSort {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Get user input for the number of strings to be sorted
+        //get the user's input for the number of strings to be sorted
         System.out.print("Enter the number of strings to be sorted: ");
         int numStrings = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
+        scanner.nextLine();
 
         // Create an array to store the strings
         String[] strings = new String[numStrings];
