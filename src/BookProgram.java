@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-// Class to represent a book with details
+//a class representing a book with details
 class Book {
     private String title;
     private String author;
