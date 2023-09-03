@@ -1,144 +1,199 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-// Define an Account class to encapsulate account information and operations
-class Account {
-    private final String accountNumber; // Unique account number
-    private final String accountType;   // Type of account (e.g., Checking, Savings)
-    private double balance;             // Current account balance
+public class ATM extends JFrame {
+    private JTextField accountField;
+    private JPasswordField pinField;
+    private JTextArea outputArea;
+    private JComboBox<String> transactionDropdown;
 
-    // Constructor to initialize account details
-    public Account(String accountNumber, String accountType, double initialBalance) {
-        this.accountNumber = accountNumber;
-        this.accountType = accountType;
-        this.balance = initialBalance;
+    // Initialize sample accounts
+    private double checkingBalance = 1000.0;
+    private double savingsBalance = 500.0;
+
+    public ATM() {
+        setTitle("ATM Machine");
+        setSize(400, 300);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Create account number label and text field
+        JLabel accountLabel = new JLabel("Account Number:");
+        accountField = new JTextField(15);
+
+        // Create PIN label and password field
+        JLabel pinLabel = new JLabel("PIN:");
+        pinField = new JPasswordField(4);
+
+        // Create transaction dropdown
+        String[] transactions = {"Select Transaction", "Check Balance", "Deposit", "Withdraw", "Transfer"};
+        transactionDropdown = new JComboBox<>(transactions);
+
+        // Create output area
+        outputArea = new JTextArea(10, 30);
+        outputArea.setEditable(false);
+
+        // Create buttons for actions
+        JButton submitButton = new JButton("Submit");
+        JButton clearButton = new JButton("Clear");
+
+        // Add components to the layout
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.insets = new Insets(5, 5, 5, 5);
+
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        panel.add(accountLabel, constraints);
+
+        constraints.gridx = 1;
+        panel.add(accountField, constraints);
+
+        constraints.gridy = 1;
+        panel.add(pinLabel, constraints);
+
+        constraints.gridx = 1;
+        panel.add(pinField, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        panel.add(transactionDropdown, constraints);
+
+        constraints.gridx = 1;
+        panel.add(submitButton, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 3;
+        panel.add(clearButton, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 4;
+        constraints.gridwidth = 2;
+        panel.add(new JScrollPane(outputArea), constraints);
+
+        // ActionListener for the Submit button
+        submitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleTransaction();
+            }
+        });
+
+        // ActionListener for the Clear button
+        clearButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                clearFields();
+            }
+        });
+
+        add(panel);
+        setVisible(true);
     }
 
-    // Getters to access account information
-    public String getAccountNumber() {
-        return accountNumber;
-    }
+    // Handle user-selected transaction
+    private void handleTransaction() {
+        String accountNumber = accountField.getText();
+        String pin = String.valueOf(pinField.getPassword());
+        String selectedTransaction = (String) transactionDropdown.getSelectedItem();
 
-    public String getAccountType() {
-        return accountType;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    // Method to deposit funds into the account
-    public void deposit(double amount) {
-        balance += amount;
-    }
-
-    // Method to withdraw funds from the account
-    public boolean withdraw(double amount) {
-        if (balance >= amount) {
-            balance -= amount;
-            return true;
+        if (accountNumber.isEmpty() || pin.isEmpty()) {
+            showMessage("Please enter your account number and PIN.");
+            return;
         }
-        return false; // Insufficient balance, withdrawal failed
-    }
 
-    // Method to transfer funds from this account to another account
-    public void transfer(Account recipient, double amount) {
-        if (withdraw(amount)) {
-            recipient.deposit(amount);
+        // Perform account validation (simplified for demonstration)
+        boolean validAccount = accountNumber.equals("12345") && pin.equals("1234");
+        if (!validAccount) {
+            showMessage("Invalid account number or PIN.");
+            return;
+        }
+
+        // Handle selected transaction
+        switch (selectedTransaction) {
+            case "Check Balance":
+                showMessage("Checking Balance: $" + checkingBalance + "\nSavings Balance: $" + savingsBalance);
+                break;
+            case "Deposit":
+                performDeposit();
+                break;
+            case "Withdraw":
+                performWithdrawal();
+                break;
+            case "Transfer":
+                performTransfer();
+                break;
+            default:
+                showMessage("Please select a valid transaction.");
         }
     }
-}
 
+    // Perform a deposit transaction
+    private void performDeposit() {
+        String depositAmountStr = JOptionPane.showInputDialog("Enter the deposit amount:");
+        if (depositAmountStr == null || depositAmountStr.isEmpty()) {
+            showMessage("Invalid deposit amount.");
+            return;
+        }
 
-public class ATM {
-    private static Map<String, Account> accounts = new HashMap<>();
+        double depositAmount = Double.parseDouble(depositAmountStr);
+        checkingBalance += depositAmount;
+        showMessage("Deposit successful. New Checking Balance: $" + checkingBalance);
+    }
+
+    // Perform a withdrawal transaction
+    private void performWithdrawal() {
+        String withdrawalAmountStr = JOptionPane.showInputDialog("Enter the withdrawal amount:");
+        if (withdrawalAmountStr == null || withdrawalAmountStr.isEmpty()) {
+            showMessage("Invalid withdrawal amount.");
+            return;
+        }
+
+        double withdrawalAmount = Double.parseDouble(withdrawalAmountStr);
+        if (checkingBalance >= withdrawalAmount) {
+            checkingBalance -= withdrawalAmount;
+            showMessage("Withdrawal successful. New Checking Balance: $" + checkingBalance);
+        } else {
+            showMessage("Insufficient balance.");
+        }
+    }
+
+    // Perform a fund transfer transaction
+    private void performTransfer() {
+        String transferAmountStr = JOptionPane.showInputDialog("Enter the transfer amount:");
+        if (transferAmountStr == null || transferAmountStr.isEmpty()) {
+            showMessage("Invalid transfer amount.");
+            return;
+        }
+
+        double transferAmount = Double.parseDouble(transferAmountStr);
+        if (checkingBalance >= transferAmount) {
+            savingsBalance += transferAmount;
+            checkingBalance -= transferAmount;
+            showMessage("Transfer successful.\nNew Checking Balance: $" + checkingBalance + "\nNew Savings Balance: $" + savingsBalance);
+        } else {
+            showMessage("Insufficient balance.");
+        }
+    }
+
+    // Display a message in the output area
+    private void showMessage(String message) {
+        outputArea.setText(message);
+    }
+
+    // Clear input fields
+    private void clearFields() {
+        accountField.setText("");
+        pinField.setText("");
+        transactionDropdown.setSelectedIndex(0);
+        outputArea.setText("");
+    }
 
     public static void main(String[] args) {
-        initializeAccounts();
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the ATM!");
-
-        while (true) {
-            System.out.print("Enter your account number (or 'exit' to quit): ");
-            String accountNumber = scanner.nextLine();
-
-            if (accountNumber.equalsIgnoreCase("exit")) {
-                break;
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new ATM();
             }
-
-            Account currentAccount = accounts.get(accountNumber);
-            if (currentAccount != null) {
-                showAccountMenu(currentAccount);
-            } else {
-                System.out.println("Invalid account number. Please try again.");
-            }
-        }
-
-        System.out.println("Thank you for using the ATM!");
-        scanner.close();
-    }
-
-    private static void initializeAccounts() {
-        // Initialize sample accounts
-        accounts.put("12345", new Account("12345", "Checking", 1000.0));
-        accounts.put("67890", new Account("67890", "Savings", 500.0));
-    }
-
-    private static void showAccountMenu(Account account) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome, " + account.getAccountType() + " Account Holder!");
-
-        while (true) {
-            System.out.println("Account Menu");
-            System.out.println("1. Check Balance");
-            System.out.println("2. Deposit");
-            System.out.println("3. Withdraw");
-            System.out.println("4. Transfer");
-            System.out.println("5. Exit");
-
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    System.out.println("Your balance: $" + account.getBalance());
-                    break;
-                case 2:
-                    System.out.print("Enter the amount to deposit: $");
-                    double depositAmount = scanner.nextDouble();
-                    account.deposit(depositAmount);
-                    System.out.println("Deposit successful. Your new balance: $" + account.getBalance());
-                    break;
-                case 3:
-                    System.out.print("Enter the amount to withdraw: $");
-                    double withdrawAmount = scanner.nextDouble();
-                    if (account.withdraw(withdrawAmount)) {
-                        System.out.println("Withdrawal successful. Your new balance: $" + account.getBalance());
-                    } else {
-                        System.out.println("Insufficient balance. Please try again.");
-                    }
-                    break;
-                case 4:
-                    System.out.print("Enter the recipient's account number: ");
-                    String recipientAccountNumber = scanner.next();
-                    Account recipientAccount = accounts.get(recipientAccountNumber);
-                    if (recipientAccount != null) {
-                        System.out.print("Enter the amount to transfer: $");
-                        double transferAmount = scanner.nextDouble();
-                        account.transfer(recipientAccount, transferAmount);
-                        System.out.println("Transfer successful. Your new balance: $" + account.getBalance());
-                    } else {
-                        System.out.println("Invalid recipient account number. Please try again.");
-                    }
-                    break;
-                case 5:
-                    System.out.println("Logging out...");
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
+        });
     }
 }
