@@ -36,12 +36,12 @@ public class RandomPhraseGenerator {
         int objectIndex = random.nextInt(objects.size());   //random object index
 
         //retrieving the random words for the phrase/sentence
-        String subject = subjects.get(subjectIndex); // Get random subject
-        String verb = verbs.get(verbIndex);           // Get random verb
-        String object = objects.get(objectIndex);     // Get random object
+        String subject = subjects.get(subjectIndex); //get random subject
+        String verb = verbs.get(verbIndex);           //get random verb
+        String object = objects.get(objectIndex);     //get random object
 
-        // Build and print the random sentence
-        String sentence = subject + " " + verb + " " + object + "."; // Construct sentence
-        System.out.println("Random Sentence: " + sentence);          // Print the sentence
+        //building and printing the random phrase/sentence
+        String sentence = subject + " " + verb + " " + object + "."; //constructing sentence
+        System.out.println("Random Sentence: " + sentence);          //printing the sentence
     }
 }
