@@ -6,26 +6,27 @@ public class BubbleSort {
 
         //get the user's input for the number of strings to be sorted
         System.out.print("Enter the number of strings to be sorted: ");
-        int numStrings = scanner.nextInt();
+        int alphanum = scanner.nextInt();
         scanner.nextLine();
 
-        // Create an array to store the strings
-        String[] strings = new String[numStrings];
+        //an array to store the strings
+        String[] strings = new String[alphanum];
 
-        // Get user input for the strings
-        for (int i = 0; i < numStrings; i++) {
+        //loop to get user input for strings
+        for (int i = 0; i < alphanum; i++) {
+            //prompting the user to enter a string with the current index
             System.out.print("Enter string #" + (i + 1) + ": ");
             strings[i] = scanner.nextLine();
         }
 
-        // Get user choice for sorting order
+        //get user choice for sorting order
         System.out.println("Choose sorting order:");
         System.out.println("1. Alphanumeric Order");
         System.out.println("2. Reverse Alphanumeric Order");
         System.out.print("Enter your choice: ");
         int sortOption = scanner.nextInt();
 
-        // Sort the strings using Bubble Sort
+        //sort the strings using Bubble Sort
         if (sortOption == 1) {
             bubbleSort(strings, false); // Sort in alphanumeric order
         } else if (sortOption == 2) {
