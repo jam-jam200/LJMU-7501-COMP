@@ -65,26 +65,28 @@ public class BookProgram {
             int option = scanner.nextInt();
 
             switch (option) {
-                case 1:
-                    System .out.print("Enter the index of the book to display (0-9): ");
+                case 1 -> {
+                    System.out.print("Enter the index of the book to display (0-9): ");
                     int index = scanner.nextInt();
                     if (index >= 0 && index < bookList.size()) {
+                        //check if the entered index is valid (within the range of available books(0-9))
                         System.out.println("\nBook Details:");
-                        System.out.println(bookList.get(index)); // Display details of the selected book
+                        System.out.println(bookList.get(index)); //display details of the selected book
                     } else {
+                        //in case the entered index is invalid print out error message
                         System.out.println("Invalid index. Please enter a valid index (0-9).");
                     }
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     sortBookList(bookList); // Sort the book list based on user's option
                     System.out.println("Booklist sorted.");
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("Exiting program.");
                     scanner.close();
                     System.exit(0);
-                default:
-                    System.out.println("Invalid option. Please enter a valid option.");
+                }
+                default -> System.out.println("Invalid option. Please enter a valid option.");
             }
         }
     }
