@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 //a class representing a book with details
 class Book {
-    private String title;
-    private String author;
-    private String isbn;
-    private String publisher;
-    private int releaseYear;
+    private final String title;
+    private final String author;
+    private final String isbn;
+    private final String publisher;
+    private final int releaseYear;
 
     public Book(String title, String author, String isbn, String publisher, int releaseYear) {
         this.title = title;
