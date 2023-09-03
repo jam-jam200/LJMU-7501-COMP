@@ -20,7 +20,7 @@ class Book {
         this.releaseYear = releaseYear;
     }
 
-    // Getters for book details
+    //getters for the book details
     public String getTitle() {
         return title;
     }
