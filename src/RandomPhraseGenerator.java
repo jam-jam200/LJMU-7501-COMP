@@ -30,12 +30,12 @@ public class RandomPhraseGenerator {
         //creating a random number generator
         Random random = new Random();
 
-        // Generate random indices for each part of the sentence
-        int subjectIndex = random.nextInt(subjects.size()); // Random subject index
-        int verbIndex = random.nextInt(verbs.size());       // Random verb index
-        int objectIndex = random.nextInt(objects.size());   // Random object index
+        //generating random indices for each part of the sentence
+        int subjectIndex = random.nextInt(subjects.size()); //random subject index
+        int verbIndex = random.nextInt(verbs.size());       //random verb index
+        int objectIndex = random.nextInt(objects.size());   //random object index
 
-        // Retrieve the random words for the sentence
+        //retrieving the random words for the phrase/sentence
         String subject = subjects.get(subjectIndex); // Get random subject
         String verb = verbs.get(verbIndex);           // Get random verb
         String object = objects.get(objectIndex);     // Get random object
