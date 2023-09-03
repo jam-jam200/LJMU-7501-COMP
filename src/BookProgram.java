@@ -43,7 +43,7 @@ class Book {
 
     @Override
     public String toString() {
-        // Generate a string representation of the book
+        //generating a string representation of the book
         return "Title: " + title + "\nAuthor: " + author + "\nISBN: " + isbn + "\nPublisher: " + publisher + "\nRelease Year: " + releaseYear;
     }
 }
