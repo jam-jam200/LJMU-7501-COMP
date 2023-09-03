@@ -4,15 +4,16 @@ public class Fibonacci {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Calculate and display the first 30 numbers of the Fibonacci sequence
+        //calculate and display the first 30 numbers of the Fibonacci sequence
         int[] fibonacciSequence = calculateFibonacci(30);
-        System.out.println("First 30 numbers of the Fibonacci sequence:");
+        System.out.println("First 30 numbers of the Fibonacci sequence: ");
 
+        //printing the first 30 numbers of the Fibonacci sequence
         for (int i = 0; i < fibonacciSequence.length; i++) {
             System.out.print(fibonacciSequence[i] + " ");
         }
 
-        // Allow the user to choose an index number
+        //allowing the user to choose an index number
         System.out.print("\nEnter an index number (1-30) to print from the Fibonacci sequence: ");
         int index = scanner.nextInt();
         if (index >= 1 && index <= 30) {
