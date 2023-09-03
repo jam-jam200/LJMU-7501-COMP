@@ -89,6 +89,7 @@ public class BookProgram {
                     scanner.close();
                     System.exit(0);
                 }
+                //in case the entered option is invalid print out error message
                 default -> System.out.println("Invalid option. Please enter a valid option.");
             }
         }
