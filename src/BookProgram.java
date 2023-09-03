@@ -57,10 +57,10 @@ public class BookProgram {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\nMenu:");
-            System.out.println("1. Display a book");
-            System.out.println("2. Sort the booklist");
-            System.out.println("3. Exit");
+            System.out.println("\nThe Menu:");
+            System.out.println("1. Display a book from a list");
+            System.out.println("2. Sort the book list");
+            System.out.println("3. Exit Program");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
