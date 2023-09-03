@@ -4,20 +4,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ATM extends JFrame {
-    private JTextField accountField;
-    private JPasswordField pinField;
-    private JTextArea outputArea;
-    private JComboBox<String> transactionDropdown;
+    //these variables represent the user interface components for the ATM application.
+    private final JTextField accountField;        //input field for account number
+    private final JPasswordField pinField;        //input field for PIN
+    private final JTextArea outputArea;            //area for displaying output messages
+    private final JComboBox<String> transactionDropdown;    //dropdown for selecting transaction type
 
-    // Initialize sample accounts
-    private double checkingBalance = 1000.0;
-    private double savingsBalance = 500.0;
+    //initializing sample account balances for demonstration purposes
+    private double currentBalance = 1500.0;    //starting balance for current account
+    private double savingsBalance = 500.0;      //starting balance for savings account
+
 
     public ATM() {
+        //setting the title of the ATM application window
         setTitle("ATM Machine");
+
+        //setting the size (dimensions) of the application window
         setSize(400, 300);
+
+        //specifying the default close operation when the user closes the application window
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        //centering the application window on the screen
         setLocationRelativeTo(null);
+        ;
 
         // Create account number label and text field
         JLabel accountLabel = new JLabel("Account Number:");
@@ -112,7 +122,7 @@ public class ATM extends JFrame {
         // Handle selected transaction
         switch (selectedTransaction) {
             case "Check Balance":
-                showMessage("Checking Balance: $" + checkingBalance + "\nSavings Balance: $" + savingsBalance);
+                showMessage("Checking Balance: $" + currentBalance + "\nSavings Balance: $" + savingsBalance);
                 break;
             case "Deposit":
                 performDeposit();
@@ -137,8 +147,8 @@ public class ATM extends JFrame {
         }
 
         double depositAmount = Double.parseDouble(depositAmountStr);
-        checkingBalance += depositAmount;
-        showMessage("Deposit successful. New Checking Balance: $" + checkingBalance);
+        currentBalance += depositAmount;
+        showMessage("Deposit successful. New Checking Balance: $" + currentBalance);
     }
 
     // Perform a withdrawal transaction
@@ -150,9 +160,9 @@ public class ATM extends JFrame {
         }
 
         double withdrawalAmount = Double.parseDouble(withdrawalAmountStr);
-        if (checkingBalance >= withdrawalAmount) {
-            checkingBalance -= withdrawalAmount;
-            showMessage("Withdrawal successful. New Checking Balance: $" + checkingBalance);
+        if (currentBalance >= withdrawalAmount) {
+            currentBalance -= withdrawalAmount;
+            showMessage("Withdrawal successful. New Checking Balance: $" + currentBalance);
         } else {
             showMessage("Insufficient balance.");
         }
@@ -167,10 +177,10 @@ public class ATM extends JFrame {
         }
 
         double transferAmount = Double.parseDouble(transferAmountStr);
-        if (checkingBalance >= transferAmount) {
+        if (currentBalance >= transferAmount) {
             savingsBalance += transferAmount;
-            checkingBalance -= transferAmount;
-            showMessage("Transfer successful.\nNew Checking Balance: $" + checkingBalance + "\nNew Savings Balance: $" + savingsBalance);
+            currentBalance -= transferAmount;
+            showMessage("Transfer successful.\nNew Checking Balance: $" + currentBalance + "\nNew Savings Balance: $" + savingsBalance);
         } else {
             showMessage("Insufficient balance.");
         }
