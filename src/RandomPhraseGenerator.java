@@ -8,15 +8,15 @@ public class RandomPhraseGenerator {
         ArrayList<String> verbs = new ArrayList<>();
         ArrayList<String> objects = new ArrayList<>();
 
-        // Add words to the subject, verb, and object lists
+        //adding words to the subject, verb, and object list
+        subjects.add("The boy");
+        subjects.add("A Man");
         subjects.add("The cat");
-        subjects.add("A dog");
-        subjects.add("The car");
         subjects.add("A bird");
-        subjects.add("My friend");
+        subjects.add("My Mummy");
 
+        verbs.add("sang");
         verbs.add("chased");
-        verbs.add("ate");
         verbs.add("jumped over");
         verbs.add("saw");
         verbs.add("drove");
