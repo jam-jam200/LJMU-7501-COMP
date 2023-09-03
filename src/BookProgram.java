@@ -95,18 +95,18 @@ public class BookProgram {
         }
     }
 
-    // Initialize the book list with sample books
+    //initializing the book list with sample books
     private static void initializeBookList(ArrayList<Book> bookList) {
-        bookList.add(new Book("Book 1", "Author 1", "ISBN 1111", "Publisher 1", 2020));
-        bookList.add(new Book("Book 2", "Author 2", "ISBN 2222", "Publisher 2", 2019));
-        bookList.add(new Book("Book 3", "Author 3", "ISBN 3333", "Publisher 3", 2018));
-        bookList.add(new Book("Book 4", "Author 4", "ISBN 4444", "Publisher 4", 2017));
-        bookList.add(new Book("Book 5", "Author 5", "ISBN 5555", "Publisher 5", 2016));
-        bookList.add(new Book("Book 6", "Author 6", "ISBN 6666", "Publisher 6", 2015));
-        bookList.add(new Book("Book 7", "Author 7", "ISBN 7777", "Publisher 7", 2014));
-        bookList.add(new Book("Book 8", "Author 8", "ISBN 8888", "Publisher 8", 2013));
-        bookList.add(new Book("Book 9", "Author 9", "ISBN 9999", "Publisher 9", 2012));
-        bookList.add(new Book("Book 10", "Author 10", "ISBN 1010", "Publisher 10", 2011));
+        bookList.add(new Book("Book A", "Author A", "ISBN 1111", "Publisher A", 2023));
+        bookList.add(new Book("Book B", "Author B", "ISBN 2222", "Publisher B", 2022));
+        bookList.add(new Book("Book C", "Author C", "ISBN 3333", "Publisher C", 2021));
+        bookList.add(new Book("Book D", "Author D", "ISBN 4444", "Publisher D", 2020));
+        bookList.add(new Book("Book E", "Author E", "ISBN 5555", "Publisher E", 2019));
+        bookList.add(new Book("Book F", "Author F", "ISBN 6666", "Publisher F", 2018));
+        bookList.add(new Book("Book G", "Author G", "ISBN 7777", "Publisher G", 2017));
+        bookList.add(new Book("Book H", "Author 8H", "ISBN 8888", "Publisher H", 2016));
+        bookList.add(new Book("Book I", "Author I", "ISBN 9999", "Publisher I", 2015));
+        bookList.add(new Book("Book J", "Author J", "ISBN 1010", "Publisher J", 2014));
     }
 
     // Sort the book list based on user's choice
