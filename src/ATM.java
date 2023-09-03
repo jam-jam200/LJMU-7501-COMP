@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class ATM extends JFrame {
     //these variables represent the user interface components for the ATM application.
@@ -131,26 +132,22 @@ public class ATM extends JFrame {
         }
 
         //handling the selected transaction
-        switch (selectedTransaction) {
-            case "Check Balance":
+        switch (Objects.requireNonNull(selectedTransaction)) {
+            case "Check Balance" ->
                 //display the current and savings balances
-                showMessage("Checking Balance: $" + currentBalance + "\nSavings Balance: $" + savingsBalance);
-                break;
-            case "Deposit":
+                    showMessage("Current Balance: $" + currentBalance + "\nSavings Balance: $" + savingsBalance);
+            case "Deposit" ->
                 //proceed to handle a deposit transaction
-                performDeposit();
-                break;
-            case "Withdraw":
+                    performDeposit();
+            case "Withdraw" ->
                 //proceed to handle a withdrawal transaction
-                performWithdrawal();
-                break;
-            case "Transfer":
+                    performWithdrawal();
+            case "Transfer" ->
                 //proceed to handle a transfer transaction
-                performTransfer();
-                break;
-            default:
+                    performTransfer();
+            default ->
                 //in case the invalid transaction is selected, print out error message
-                showMessage("Please select a valid transaction.");
+                    showMessage("Please select a valid transaction.");
         }
     }
 
@@ -173,7 +170,7 @@ public class ATM extends JFrame {
         currentBalance += depositAmount;
 
         //display a success message with the new checking balance
-        showMessage("Deposit successful. New Checking Balance: $" + currentBalance);
+        showMessage("Deposit successful. New Current Balance: $" + currentBalance);
     }
 
     // Perform a withdrawal transaction
@@ -194,7 +191,7 @@ public class ATM extends JFrame {
         if (currentBalance >= withdrawalAmount) {
             //if sufficient, update the current balance by subtracting the withdrawal amount
             currentBalance -= withdrawalAmount;
-            showMessage("Withdrawal successful. New Checking Balance: $" + currentBalance);
+            showMessage("Withdrawal successful. New Current Balance: $" + currentBalance);
         } else {
             //if the balance is insufficient, show an error message
             showMessage("Insufficient balance.");
@@ -220,7 +217,7 @@ public class ATM extends JFrame {
             //if sufficient, update the savings and current balances accordingly
             savingsBalance += transferAmount;
             currentBalance -= transferAmount;
-            showMessage("Transfer successful.\nNew Checking Balance: $" + currentBalance + "\nNew Savings Balance: $" + savingsBalance);
+            showMessage("Transfer successful.\nNew Current Balance: $" + currentBalance + "\nNew Savings Balance: $" + savingsBalance);
         } else {
             //if the balance is insufficient, show an error message
             showMessage("Insufficient balance.");
