@@ -151,6 +151,6 @@ public class BookProgram {
                 return;
         }
 
-        Collections.sort(bookList, comparator); //sort the book list using the chosen comparator
+        Collections.sort(bookList, comparator); //sort the book list using the chosen comparator(the one chosen by the user)
     }
 }
