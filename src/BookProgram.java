@@ -78,11 +78,14 @@ public class BookProgram {
                     }
                 }
                 case 2 -> {
-                    sortBookList(bookList); // Sort the book list based on user's option
+                    //sorting the book list based on user's option
+                    sortBookList(bookList);
                     System.out.println("Booklist sorted.");
                 }
                 case 3 -> {
+                    //exiting the program
                     System.out.println("Exiting program.");
+                    //closing the scanner to release resources associated with standard input (System.in)
                     scanner.close();
                     System.exit(0);
                 }
