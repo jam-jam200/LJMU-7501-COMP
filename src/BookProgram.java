@@ -109,7 +109,7 @@ public class BookProgram {
         bookList.add(new Book("Book J", "Author J", "ISBN 1010", "Publisher J", 2014));
     }
 
-    // Sort the book list based on user's choice
+    //sorting the book list based on the user's option
     private static void sortBookList(ArrayList<Book> bookList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nSort Options:");
@@ -118,12 +118,12 @@ public class BookProgram {
         System.out.println("3. Sort by ISBN");
         System.out.println("4. Sort by Publisher");
         System.out.println("5. Sort by Release Year");
-        System.out.print("Enter your choice: ");
-        int sortChoice = scanner.nextInt();
+        System.out.print("Enter your Option: ");
+        int sortOption = scanner.nextInt();
 
         Comparator<Book> comparator = null;
 
-        switch (sortChoice) {
+        switch (sortOption) {
             case 1:
                 comparator = Comparator.comparing(Book::getTitle);
                 break;
