@@ -178,17 +178,25 @@ public class ATM extends JFrame {
 
     // Perform a withdrawal transaction
     private void performWithdrawal() {
+        //requesting the user to input the withdrawal amount using a dialog box
         String withdrawalAmountStr = JOptionPane.showInputDialog("Enter the withdrawal amount:");
+        //checking if the user canceled the input dialog or left it empty
         if (withdrawalAmountStr == null || withdrawalAmountStr.isEmpty()) {
+            //show an error message and exit the withdrawal operation
             showMessage("Invalid withdrawal amount.");
             return;
         }
 
+        //parse the withdrawal amount from the user's input (as a string) to a double
         double withdrawalAmount = Double.parseDouble(withdrawalAmountStr);
+
+        //checking if the current balance is sufficient for the withdrawal
         if (currentBalance >= withdrawalAmount) {
+            //if sufficient, update the current balance by subtracting the withdrawal amount
             currentBalance -= withdrawalAmount;
             showMessage("Withdrawal successful. New Checking Balance: $" + currentBalance);
         } else {
+            //if the balance is insufficient, show an error message
             showMessage("Insufficient balance.");
         }
     }
