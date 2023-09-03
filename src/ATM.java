@@ -137,29 +137,42 @@ public class ATM extends JFrame {
                 showMessage("Checking Balance: $" + currentBalance + "\nSavings Balance: $" + savingsBalance);
                 break;
             case "Deposit":
+                //proceed to handle a deposit transaction
                 performDeposit();
                 break;
             case "Withdraw":
+                //proceed to handle a withdrawal transaction
                 performWithdrawal();
                 break;
             case "Transfer":
+                //proceed to handle a transfer transaction
                 performTransfer();
                 break;
             default:
+                //in case the invalid transaction is selected, print out error message
                 showMessage("Please select a valid transaction.");
         }
     }
 
     // Perform a deposit transaction
     private void performDeposit() {
+        //request the user to input the deposit amount using a dialog box
         String depositAmountStr = JOptionPane.showInputDialog("Enter the deposit amount:");
+
+        //checking if the user canceled the input dialog or left it empty
         if (depositAmountStr == null || depositAmountStr.isEmpty()) {
+            //show an error message and exit the deposit operation
             showMessage("Invalid deposit amount.");
             return;
         }
 
+        //parse the deposit amount from the user's input (as a string) to a double
         double depositAmount = Double.parseDouble(depositAmountStr);
+
+        //update the current balance by adding the deposit amount
         currentBalance += depositAmount;
+
+        //display a success message with the new checking balance
         showMessage("Deposit successful. New Checking Balance: $" + currentBalance);
     }
 
