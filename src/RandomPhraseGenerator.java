@@ -17,17 +17,17 @@ public class RandomPhraseGenerator {
 
         verbs.add("sang");
         verbs.add("chased");
-        verbs.add("jumped over");
-        verbs.add("saw");
-        verbs.add("drove");
+        verbs.add("ate");
+        verbs.add("fell");
+        verbs.add("flew over");
 
         objects.add("the mouse");
         objects.add("a bone");
         objects.add("the wall");
-        objects.add("a worm");
+        objects.add("a hymn");
         objects.add("the park");
 
-        // Create a random number generator
+        //creating a random number generator
         Random random = new Random();
 
         // Generate random indices for each part of the sentence
