@@ -227,13 +227,15 @@ public class ATM extends JFrame {
         }
     }
 
-    // Display a message in the output area
+    //display a message in the output area
     private void showMessage(String message) {
+        //setting the provided 'message' text to the 'outputArea' for user display
         outputArea.setText(message);
     }
 
-    // Clear input fields
+    //clear input fields
     private void clearFields() {
+        //reset the input fields and dropdown to their initial state
         accountField.setText("");
         pinField.setText("");
         transactionDropdown.setSelectedIndex(0);
@@ -241,9 +243,10 @@ public class ATM extends JFrame {
     }
 
     public static void main(String[] args) {
+        //launch the ATM application within the Event Dispatch Thread
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new ATM();
+                new ATM(); //creates an instance of the ATM application
             }
         });
     }
