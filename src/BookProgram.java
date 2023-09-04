@@ -101,8 +101,8 @@ public class BookProgram {
         bookList.add(new Book("Book C", "Author H", "ISBN 3334", "Publisher C", 2021));
         bookList.add(new Book("Book D", "Author G", "ISBN 4445", "Publisher D", 2020));
         bookList.add(new Book("Book E", "Author F", "ISBN 5556", "Publisher E", 2019));
-        bookList.add(new Book("Book F", "Author E", "ISBN 6666", "Publisher F", 2018));
-        bookList.add(new Book("Book G", "Author D", "ISBN 7777", "Publisher G", 2017));
+        bookList.add(new Book("Book F", "Author E", "ISBN 6667", "Publisher F", 2018));
+        bookList.add(new Book("Book G", "Author D", "ISBN 7778", "Publisher G", 2017));
         bookList.add(new Book("Book H", "Author C", "ISBN 8888", "Publisher H", 2016));
         bookList.add(new Book("Book I", "Author B", "ISBN 9999", "Publisher I", 2015));
         bookList.add(new Book("Book J", "Author A", "ISBN 1010", "Publisher J", 2014));
