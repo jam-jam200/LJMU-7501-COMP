@@ -97,8 +97,8 @@ public class BookProgram {
     //initializing the book list with sample books
     private static void initializeBookList(ArrayList<Book> bookList) {
         bookList.add(new Book("Book A", "Author J", "ISBN 11112", "Publisher A", 2023));
-        bookList.add(new Book("Book B", "Author I", "ISBN 2222", "Publisher B", 2022));
-        bookList.add(new Book("Book C", "Author H", "ISBN 3333", "Publisher C", 2021));
+        bookList.add(new Book("Book B", "Author I", "ISBN 2223", "Publisher B", 2022));
+        bookList.add(new Book("Book C", "Author H", "ISBN 3334", "Publisher C", 2021));
         bookList.add(new Book("Book D", "Author G", "ISBN 4444", "Publisher D", 2020));
         bookList.add(new Book("Book E", "Author F", "ISBN 5555", "Publisher E", 2019));
         bookList.add(new Book("Book F", "Author E", "ISBN 6666", "Publisher F", 2018));
