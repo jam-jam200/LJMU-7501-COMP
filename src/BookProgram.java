@@ -105,7 +105,7 @@ public class BookProgram {
         bookList.add(new Book("Book G", "Author D", "ISBN 7778", "Publisher G", 2017));
         bookList.add(new Book("Book H", "Author C", "ISBN 8889", "Publisher H", 2016));
         bookList.add(new Book("Book I", "Author B", "ISBN 9910", "Publisher I", 2015));
-        bookList.add(new Book("Book J", "Author A", "ISBN 1010", "Publisher J", 2014));
+        bookList.add(new Book("Book J", "Author A", "ISBN 1011", "Publisher J", 2014));
     }
 
     //sorting the book list based on the user's option
