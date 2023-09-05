@@ -4,7 +4,7 @@ public class BubbleSort {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        //get the user's input for the number of strings to be sorted
+        //get the user's input for the number of strings to be sorted oo
         System.out.print("Enter the number of strings to be sorted: ");
         int alphanum = scanner.nextInt();
         scanner.nextLine();
