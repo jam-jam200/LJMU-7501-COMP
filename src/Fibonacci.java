@@ -22,7 +22,7 @@ public class Fibonacci {
             //display the calculated Fibonacci number and its index
             System.out.println("Fibonacci number at index " + index + " is: " + fibNumber);
         } else {
-            //in case the ente red index is invalid print out error message
+            //in case the entered index is invalid print out error message
             System.out.println("Invalid index. Please enter a valid index (1-30).");
         }
 
