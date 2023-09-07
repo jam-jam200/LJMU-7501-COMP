@@ -27,7 +27,7 @@ public class Fibonacci {
         }
 
         //allowing the user to print a range
-        System.out.print("Enter a range (start and end) to print from the Fibonacci sequence (1-30): ");
+        System.out.print("Enter a range (start and end ) to print from the Fibonacci sequence (1-30): ");
         int start = scanner.nextInt();
         int end = scanner.nextInt();
         //check if the user's input range is within the valid range of 1-30
